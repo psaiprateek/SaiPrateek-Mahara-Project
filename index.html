@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoSteps Jr.</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Sign-In and Sign-Up Forms -->
+    <div class="container" id="auth-container">
+        <h1>Welcome to EcoSteps Jr.</h1>
+        <div id="sign-in">
+            <h2>Sign In</h2>
+            <input type="text" id="login-username" placeholder="Username" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button onclick="signIn()">Sign In</button>
+            <p>Don't have an account? <a href="#" onclick="switchToSignUp()">Sign Up</a></p>
+        </div>
+
+        <div id="sign-up" style="display: none;">
+            <h2>Sign Up</h2>
+            <input type="text" id="signup-username" placeholder="Create Username" required>
+            <input type="password" id="signup-password" placeholder="Create Password" required>
+            <button onclick="signUp()">Sign Up</button>
+            <p>Already have an account? <a href="#" onclick="switchToSignIn()">Sign In</a></p>
+        </div>
+    </div>
+
+    <!-- Dashboard (hidden until sign-in) -->
+    <div id="dashboard" style="display: none;">
+        <h1>Welcome, <span id="usernameDisplay"></span>!</h1>
+        <button onclick="logout()">Logout</button>
+
+        <!-- Carbon Footprint Calculator -->
+        <div id="carbon-footprint-calculator">
+            <h2>Carbon Footprint Calculator</h2>
+            <form id="footprintForm">
+                <label for="transport">Mode of Transportation:</label>
+                <select id="transport">
+                    <option value="car">Car</option>
+                    <option value="bus">Bus</option>
+                    <option value="bike">Bicycle</option>
+                    <option value="walk">Walk</option>
+                </select>
+
+                <label for="electricity">Electricity Usage (hours):</label>
+                <input type="number" id="electricity" min="0" placeholder="Hours of electricity use">
+
+                <button type="button" onclick="calculateFootprint()">Calculate Carbon Footprint</button>
+            </form>
+            <p id="footprintResult"></p>
+        </div>
+
+        <!-- Eco Features -->
+        <div id="eco-features">
+            <h3>Eco Challenge</h3>
+            <button onclick="generateChallenge()">Get Challenge</button>
+            <p id="challengeDisplay"></p>
+
+            <h3>Your Progress</h3>
+            <div id="progressBar">
+                <div id="progress"></div>
+            </div>
+        </div>
+
+        <!-- Virtual Garden -->
+        <div id="virtual-garden">
+            <h3>Your Virtual Garden</h3>
+            <img id="gardenImage" src="small_plant.png" alt="Plant" />
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
